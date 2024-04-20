@@ -35,7 +35,7 @@ export default function ArtisanUpload(){
     return (
         <div className="artisan-page">
             <div className="products">
-                <h1>Hello Artisan. Welcome to CraftsConnect</h1>
+                <h1>Hello {user.username}. Welcome to CraftsConnect</h1>
                 {products && products.map((item) => (
                     <ProductDetails
                         key = {item._id}
