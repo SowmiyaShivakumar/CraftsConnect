@@ -9,7 +9,6 @@ const HomePageProducts = ({ product }) => {
             <p><strong>Quantity : </strong>{product.quantity}</p>
             <p><strong>Tags : </strong>{product.tags}</p>
             {product.productImage && <img src={product.productImage} alt={product.productName} height={200} width={200}/>}
-            <hr/>
         </div>
     )
 
