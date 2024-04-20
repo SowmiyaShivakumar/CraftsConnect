@@ -2,17 +2,18 @@ import { useEffect } from "react"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useProductsContext } from "../hooks/useProductsContext"
 
-import HomePageProducts from "../components/HomePageProducts"
+import ProductDetails from "../components/ProductDetails"
+import ProductForm from '../components/ProductForm'
 
-export default function Home(){
+export default function ArtisanUpload(){
 
     const { products, dispatch } = useProductsContext()
-    const { user }  = useAuthContext()
+    const { user}  = useAuthContext()
 
     useEffect(() => {
 
         async function fetchProducts(){
-            const response = await fetch('/api/products/all' , {
+            const response = await fetch('/api/products' , {
                 headers : {
                     'Authorization' : `Bearer ${user.token}`
                 }
@@ -32,17 +33,17 @@ export default function Home(){
     }, [dispatch,user])
 
     return (
-        <div className="homepage">
-            <h1>Welcome to CraftsConnect</h1>
-            <div>
+        <div className="artisan-page">
+            <div className="products">
+                <h1>Hello Artisan. Welcome to CraftsConnect</h1>
                 {products && products.map((item) => (
-                    <HomePageProducts
+                    <ProductDetails
                         key = {item._id}
                         product = {item}
                     />
                 ))}
-
             </div>
+            <ProductForm/>
         </div>
     )
 }

@@ -1,47 +1,47 @@
-// const mongoose = require('mongoose')
-const UserModel = require('../models/UserModel')
+const User = require('../models/userModel')
+const jwt = require('jsonwebtoken')
 
-// creating account for the user 
-const signup = async (req, res) => {
-    const { email } = req.body;
+const createToken = (_id) =>{
+    return jwt.sign({_id}, process.env.SECRET, {expiresIn: '2h'})
+}
+
+//login user function
+const loginUser = async (req,res) => {
+
+    const { email,password } = req.body
     try{
-        const user = await UserModel.findOne({ email });
-        if(user){
-            return res.json("Exists");
-        } 
-        else{
-            const newUser = await UserModel.create(req.body);
-            return res.json(newUser);
-        }
-    }
-    catch (error) {
-        return res.status(500).json({ error: error.message });
-    }
-};
+        const user = await User.login(email,password)
 
-// logging in the user 
-const login = async (req,res) => {
-    const {email , password} = await req.body
-    UserModel.findOne({email})
-    .then(user => {
-        if(user){
-            if(user.password === password){
-                res.json("Logged in")
-            }
-            else{
-                res.json("Incorrect Password")
-            }
-        }
-        else{
-            res.json("User doesn't exist")
-        }
-    })
-    .catch(error => {
-        res.json("Error occured")
-    })
+        const username = user.username
+        const userType = user.userType
+        // token creation
+        const token = createToken(user._id)
+        res.status(200).json({ username, userType, token})
+    }
+    catch(err){
+        res.status(400).json({error : err.message})
+    }
+}
+
+
+//signup function
+const signupUser = async (req,res) => {
+    const { username,email,password,userType } = req.body
+
+    try {
+        const user = await User.signup(username , email, password,userType)
+
+        // token creation
+        const token = createToken(user._id)
+
+        res.status(200).json({username,userType,email,token})
+    }
+    catch(err){
+        res.status(400).json({error : err.message})
+    }
 }
 
 module.exports = {
-    signup,
-    login
+    loginUser,
+    signupUser
 }
