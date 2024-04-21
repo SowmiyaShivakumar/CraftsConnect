@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
+import { FaUser } from "react-icons/fa"
+ 
 import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from "../hooks/useAuthContext"
+import './style_components/navbar.css'
 
 export default function Navbar(){
 
@@ -12,7 +15,7 @@ export default function Navbar(){
     }
 
     return (
-        <header>
+        <header className="navbar-header">
             <div className="navbar">
                 <Link to='/'>
                     <h2>Crafts Connect</h2>
@@ -20,7 +23,7 @@ export default function Navbar(){
                 <nav>
                     {user && (
                         <div>
-                            <span>Hello, {user.username}</span>
+                            <span><FaUser/> {user.username}</span>
                             {user.userType==='artisan' && <Link to='/upload' >Upload</Link>}
                             <Link to='/'>Home</Link>
                             <button onClick={handleLogout}>Logout</button>

@@ -33,17 +33,19 @@ export default function ArtisanUpload(){
     }, [dispatch,user])
 
     return (
-        <div className="artisan-page">
-            <div className="products">
-                <h1>Hello {user.username}. Welcome to CraftsConnect</h1>
-                {products && products.map((item) => (
-                    <ProductDetails
-                        key = {item._id}
-                        product = {item}
-                    />
-                ))}
+        <div className="artisan-homepage">
+            <h2>Welcome back , {user.username}</h2>
+            <div className="artisan-page">
+                <div className="products">
+                    {products && products.map((item) => (
+                        <ProductDetails
+                            key = {item._id}
+                            product = {item}
+                        />
+                    ))}
+                </div>
+                <ProductForm/>
             </div>
-            <ProductForm/>
         </div>
     )
 }
