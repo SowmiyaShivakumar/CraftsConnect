@@ -1,7 +1,9 @@
-import { useProductsContext } from '../hooks/useProductsContext'
-import { useAuthContext } from '../hooks/useAuthContext'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useState } from 'react'
+
+import { useProductsContext } from '../hooks/useProductsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
+import './style_components/productDetails.css'
 
 
 const ProductDetails = ({ product }) => {
@@ -12,11 +14,6 @@ const ProductDetails = ({ product }) => {
     const [quantity , setQuantity] = useState(product.quantity)
     const [tags , setTags] = useState(product.tags)
     const [productImage, setProductImage] = useState(product.productImage)
-
-
-    // const [error,setError] = useState(null)
-    // const [isLoading, setIsLoading] = useState()
-    // const [emptyFields , setEmptyFields] = useState([])
 
     const [modal, setModal] = useState(false);
 
@@ -115,9 +112,10 @@ const ProductDetails = ({ product }) => {
             <p><strong>Tags : </strong>{product.tags}</p>
             <img src={product.productImage} alt={product.productName} height={200} width={200}/>
             <p>{formatDistanceToNow(new Date(product.createdAt), { addSuffix: true })}</p>
-            <span className="material-symbols-outlined" onClick={handleDelete}>delete</span>
-            <button onClick={toggleModal} className='btn-modal'>Update</button>
-
+            <div className="btn-modal">
+                <button className="product-delete-button" onClick={handleDelete}>Delete</button>
+                <button className="product-update-button" onClick={toggleModal} >Update</button>
+            </div>
             {
                 modal && (
                     <div className='modal'>
@@ -130,7 +128,6 @@ const ProductDetails = ({ product }) => {
                                     type="text"
                                     value={productName}
                                     onChange={(event) => setProductName(event.target.value)}
-                                    //className={emptyFields.includes('productName') ? 'error' : ''}
                                 />
                                 <br/>
                                 <label>Product Type : </label>
@@ -138,15 +135,13 @@ const ProductDetails = ({ product }) => {
                                     type="text"
                                     value={productType}
                                     onChange={(event) => setProductType(event.target.value)}
-                                    //className={emptyFields.includes('productType') ? 'error' : ''}
                                 />
                                 <br/>
-                                <label>Description : </label>
-                                <input
+                                <label className="desc">Description : </label>
+                                <textarea
                                     type="text"
                                     value={description}
                                     onChange={(event) => setDescription(event.target.value)}
-                                    //className={emptyFields.includes('description') ? 'error' : ''}
                                 />
                                 <br/>
                                 <label>Cost : </label>
@@ -154,7 +149,6 @@ const ProductDetails = ({ product }) => {
                                     type="number"
                                     value={cost}
                                     onChange={(event) => setCost(event.target.value)}
-                                    //className={emptyFields.includes('cost') ? 'error' : ''}
                                 />
                                 <br/>
                                 <label>Quantity : </label>
@@ -162,7 +156,6 @@ const ProductDetails = ({ product }) => {
                                     type="number"
                                     value={quantity}
                                     onChange={(event) => setQuantity(event.target.value)}
-                                    //className={emptyFields.includes('quantity') ? 'error' : ''}
                                 />
                                 <br/>
                                 <label>Tags : </label>
@@ -170,7 +163,6 @@ const ProductDetails = ({ product }) => {
                                     type="text"
                                     value={tags}
                                     onChange={(event) => setTags(event.target.value)}
-                                    //className={emptyFields.includes('tags') ? 'error' : ''}
                                 />
                                 <br/>
                                 <label>Image Upload : </label>

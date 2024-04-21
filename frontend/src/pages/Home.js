@@ -34,14 +34,13 @@ export default function Home(){
     return (
         <div className="homepage">
             <h1>Welcome to CraftsConnect</h1>
-            <div>
+            <div className="homepage-products">
                 {products && products.map((item) => (
                     <HomePageProducts
                         key = {item._id}
                         product = {item}
                     />
                 ))}
-
             </div>
         </div>
     )

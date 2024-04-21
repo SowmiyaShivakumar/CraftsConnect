@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useProductsContext } from '../hooks/useProductsContext'
+import './style_components/addForm.css'
 
 const ProductForm = () => {
 
@@ -85,7 +86,7 @@ const ProductForm = () => {
     }
 
     return (
-        <div>
+        <div className="product-add-form">
             <form onSubmit={handleSubmit}> 
                 <h2>Add Products</h2>
                 <label>Product Name : </label>
@@ -105,7 +106,7 @@ const ProductForm = () => {
                 />
                 <br/>
                 <label>Description : </label>
-                <input
+                <textarea
                     type="text"
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
