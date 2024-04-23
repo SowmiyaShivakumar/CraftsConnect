@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { useLogin } from '../hooks/useLogin'
 
-import loginBg from '../assets/login-bg.jpg';
+import login_img from '../assets/login-bg.jpg';
+import './style_pages/login.css'
+
 export default function Login(){
 
     const [email,setEmail] = useState('')
@@ -53,7 +55,7 @@ export default function Login(){
                     </form>
                 </div>
                 <div className="login_content">
-                    <img src={loginBg} alt="BG"></img>
+                    <img src={login_img} alt="BG"></img>
                 </div>
             </div>
         </div>

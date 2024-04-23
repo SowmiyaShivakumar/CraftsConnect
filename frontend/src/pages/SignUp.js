@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { useSignup } from '../hooks/useSignup'
 import { Link } from "react-router-dom"
-import bg from '../assets/bg_img.jpg';
+
+import signup_img from '../assets/signup-bg.jpg';
+import './style_pages/signup.css'
 export default function SignUp(){
 
     const [email,setEmail] = useState('')
@@ -21,7 +23,7 @@ export default function SignUp(){
         <div className="signup-page">
             <div className="full">
                 <div className="content">
-                    <img src={bg} alt="BG"></img>
+                    <img src={signup_img} alt="BG"></img>
                 </div>
                 <div className="form-box-signup">
                     <h1>CraftsConnect</h1>
