@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import ArtisanUpload from './pages/ArtisanUpload';
+import Products from './pages/Products';
 
 function App() {
 
@@ -25,13 +26,17 @@ function App() {
               path='/login'
               element = {!user ? <Login/> : <Navigate to="/" />}
             />
+              <Route
+              path='/signup'
+              element = {!user ? <SignUp/> : <Navigate to="/" />}
+            />
             <Route
               path='/upload'
               element = {user ? <ArtisanUpload/> : <Navigate to="/" />}
             />
             <Route
-              path='/signup'
-              element = {!user ? <SignUp/> : <Navigate to="/" />}
+              path='/product'
+              element = {user ? <Products/> : <Navigate to="/" />}
             />
             
         </Routes>

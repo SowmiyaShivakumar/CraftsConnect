@@ -1,0 +1,51 @@
+.homepage {
+    text-align: center;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.slides {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.arrow {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.indicators {
+    margin-top: 10px;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: #333;
+}

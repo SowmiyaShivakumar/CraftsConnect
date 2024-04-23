@@ -26,6 +26,7 @@ export default function Navbar(){
                             <span><FaUser/> {user.username}</span>
                             {user.userType==='artisan' && <Link to='/upload' >Upload</Link>}
                             <Link to='/'>Home</Link>
+                            <Link to='/product' >Catalog</Link>
                             <button onClick={handleLogout}>Logout</button>
                         </div>
                     )}
