@@ -1,13 +1,21 @@
 .homepage {
-    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.carousel {
+.homepage h1{
+    margin-top: 5px;
+}
+
+.homepage .carousel {
     display: flex;
     overflow: hidden;
     position: relative;
     margin: 20px auto;
-    max-width: 800px;
+    width: 800px;
 }
 
 .slides {
@@ -25,27 +33,32 @@
 }
 
 .arrow-left {
-    left: 0;
+    left: 22rem;
+    z-index: 100;
 }
 
 .arrow-right {
-    right: 0;
+    right: 22rem;
+    z-index: 100;
 }
 
 .indicators {
-    margin-top: 10px;
+    position: relative;
+    bottom: 50px;
 }
 
 .indicator {
-    display: inline-block;
-    width: 10px;
+    width: 6px;
     height: 10px;
-    border-radius: 50%;
-    background-color: #ccc;
+    border-radius: 100%;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px #555;
     margin-right: 5px;
     cursor: pointer;
 }
 
 .indicator.active {
-    background-color: #333;
+    background-color: #666;
 }

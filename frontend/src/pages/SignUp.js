@@ -56,10 +56,12 @@ export default function SignUp(){
                             />
                         <label>Password</label>
                         </div>
-                        <select onChange={(event) => setUserType(event.target.value)}>
-                            <option value="user">User</option>
-                            <option value="artisan">Artisan</option>
-                        </select>
+                        <div className="input-box">
+                            <select className="select-user" onChange={(event) => setUserType(event.target.value)}>
+                                <option value="user">User</option>
+                                <option value="artisan">Artisan</option>
+                            </select>
+                        </div>
                         <button disabled={isLoading} className="btn" id="register">Register</button>
                         <h4 className="or">OR</h4>
                         <h2 className="signup_using">Sign Up using</h2>
