@@ -7,7 +7,8 @@ const {
     getProductWithId,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    searchProduct
 } = require('../controllers/productController')
 
 const requireAuth = require('../middleware/requireAuth')
@@ -31,5 +32,8 @@ route.delete('/:id' , deleteProduct)
 
 //update a product
 route.put('/:id' , updateProduct)
+
+//search a product
+route.post('/search',searchProduct)
 
 module.exports = route

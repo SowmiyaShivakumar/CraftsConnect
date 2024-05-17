@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import ArtisanUpload from './pages/ArtisanUpload';
 import Products from './pages/Products';
+import SingleProduct from './components/SingleProduct';
+import Cart from './pages/Cart';
 
 function App() {
 
@@ -38,7 +40,14 @@ function App() {
               path='/product'
               element = {user ? <Products/> : <Navigate to="/" />}
             />
-            
+            <Route
+              path='/cart'
+              element = {user ? <Cart/> : <Navigate to="/" />}
+            />
+            <Route
+              path='/product/:id'
+              element = {user ? <SingleProduct/> : <Navigate to="/" />}
+            />
         </Routes>
       </div>
         

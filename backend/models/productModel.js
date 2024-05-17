@@ -34,6 +34,10 @@ const productSchema = new Schema({
     user_id : {
         type:String,
         required : true
+    },
+    inCart : {
+        type : Boolean,
+        default : false
     }
 } , {timestamps : true})
 
