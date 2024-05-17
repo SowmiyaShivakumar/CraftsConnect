@@ -110,10 +110,25 @@ const updateProduct = async (req,res) => {
         return res.status(400).json({error : "Updation of product failed"})
     }
 
-    console.log(product)
-
     res.status(200).json(product)  
 
+}
+
+//searching product functionality
+const searchProduct = async (req,res) => {
+    
+    try{
+        const { searchInput } = req.body
+
+        console.log(searchInput)
+
+        const product = await Product.find({productName : searchInput})
+        console.log(product)
+        res.status(200).json(product)
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 module.exports = {
@@ -122,5 +137,6 @@ module.exports = {
     getProductWithId,
     createProduct,
     deleteProduct,
-    updateProduct
+    updateProduct,
+    searchProduct
 }

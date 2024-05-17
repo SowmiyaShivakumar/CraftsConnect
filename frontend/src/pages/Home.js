@@ -22,7 +22,7 @@ export default function Home(){
 
     return (
         <div className="homepage">
-            <h1>Welcome to CraftsConnect</h1>
+            {/* <h1>Welcome to CraftsConnect</h1> */}
             <BsArrowLeftCircleFill className='arrow arrow-left' onClick={prevSlide} />
             <div className='carousel'>
                 <img className="slides" src={carousel_img1} width={600} height={400} alt="img1" style={{ transform: `translateX(-${slide * 100}%)` }} />
@@ -37,6 +37,10 @@ export default function Home(){
                 <button className={`indicator ${slide === 2 ? 'active' : ''}`} onClick={() => setSlide(2)} ></button>
                 <button className={`indicator ${slide === 3 ? 'active' : ''}`} onClick={() => setSlide(3)} ></button>
             </span>
+            <div className='homepage-description'>
+                <h1>Welcome to Crafts-Connect</h1>
+                <i>"Thoughts ideate into actions"</i>
+            </div>
         </div>
     )
 }

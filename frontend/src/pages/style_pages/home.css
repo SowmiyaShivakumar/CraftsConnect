@@ -1,9 +1,11 @@
 .homepage {
     height: 80vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+    overflow: hidden;
+    /* background-color: black; */
 }
 
 .homepage h1{
@@ -14,8 +16,30 @@
     display: flex;
     overflow: hidden;
     position: relative;
-    margin: 20px auto;
+    margin: 20px;
     width: 800px;
+    left: 40px;
+    top: 40px;
+    
+}
+
+.homepage-description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    left: 70px;
+}
+
+.homepage-description h1{
+    padding-bottom: 20px;
+    font-size: 35px;
+}
+
+.homepage-description i{
+    font-size: 25px;
 }
 
 .slides {
@@ -28,23 +52,27 @@
     font-size: 2rem;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 54%;
+    /* color: aquamarine; */
     transform: translateY(-50%);
 }
 
 .arrow-left {
-    left: 22rem;
+    left: 30px;
     z-index: 100;
+
 }
 
 .arrow-right {
-    right: 22rem;
+    /* left: 30px; */
+    right: 40.4rem;
     z-index: 100;
 }
 
 .indicators {
     position: relative;
     bottom: 50px;
+    left: 450px;
 }
 
 .indicator {

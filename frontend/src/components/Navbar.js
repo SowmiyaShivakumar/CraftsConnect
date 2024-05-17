@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { FaUser } from "react-icons/fa"
+import { FaUser, FaShoppingCart } from "react-icons/fa"
  
 import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from "../hooks/useAuthContext"
@@ -27,6 +27,7 @@ export default function Navbar(){
                             {user.userType==='artisan' && <Link to='/upload' >Upload</Link>}
                             <Link to='/'>Home</Link>
                             <Link to='/product' >Catalog</Link>
+                            <Link to='/cart'><FaShoppingCart className="cart-icon"/></Link>
                             <button onClick={handleLogout}>Logout</button>
                         </div>
                     )}
