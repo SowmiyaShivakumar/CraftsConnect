@@ -119,11 +119,13 @@ const searchProduct = async (req,res) => {
     
     try{
         const { searchInput } = req.body
-
-        console.log(searchInput)
-
-        const product = await Product.find({productName : searchInput})
-        console.log(product)
+        const product = await Product.find({
+            $or: [
+                { productName: { $regex: searchInput, $options: 'i' } }, 
+                { tags: { $regex: searchInput, $options: 'i' } } 
+            ]
+        })
+        
         res.status(200).json(product)
     }
     catch(error){
