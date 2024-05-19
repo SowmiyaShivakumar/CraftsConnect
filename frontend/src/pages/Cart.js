@@ -77,8 +77,9 @@ export default function Cart() {
                     <button className="cart-remove-button" onClick={() => handleRemove(item._id)} >Remove</button>
                 </div>
             ))}
-            <div className="total-amount">
-                <h3>Total Amount : <FaRupeeSign/>{total}</h3>
+            <div className="checkout-container">
+                <h3 className="total-amount">Total Amount : <FaRupeeSign/>{total}</h3>
+                <button className="checkout-button">Checkout</button>
             </div>
         </div>
     );
