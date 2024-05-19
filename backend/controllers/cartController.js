@@ -35,10 +35,22 @@ const removeCartItem = async (req,res) => {
     }
 }
 
+const removeAllItems = async (req,res) => {
+
+    try{
+        await Product.updateMany({}, {inCart : false})
+        res.status(200).json({msg : "ok"})
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json({error : "Error occured"})
+    }
+}
 
 
 module.exports = {
     displayCartItems,
     addCartItem,
-    removeCartItem
+    removeCartItem,
+    removeAllItems
 }

@@ -96,9 +96,6 @@ const deleteProduct = async (req,res) => {
 const updateProduct = async (req,res) => {
 
     const { id } = req.params
-    console.log(id)
-
-    console.log(req.body.productName)
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(200).json({error : "No such product"})
